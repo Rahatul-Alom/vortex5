@@ -1,0 +1,9 @@
+# Robots.txt for VORTEX5
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin
+
+# Host and Sitemap
+Host: https://vortex5.agency
+Sitemap: https://vortex5.agency/sitemap.xml
