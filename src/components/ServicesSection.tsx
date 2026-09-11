@@ -65,7 +65,7 @@ const iconMap: Record<string, any> = {
   FileText
 };
 
-export const SERVICES_SECTION = [
+export const SERVICES_SECTION_CARD = [
   {
     id: 1,
     num: '01',
@@ -156,8 +156,8 @@ export default function ServicesSection({ services, onSelectService, onViewAllSe
   const [selectedCategory, setSelectedCategory] = useState<number | 'all'>('all');
 
   const filteredDisciplines = selectedCategory === 'all' 
-    ? SERVICES_SECTION 
-    : SERVICES_SECTION.filter(d => d.id === selectedCategory);
+    ? SERVICES_SECTION_CARD 
+    : SERVICES_SECTION_CARD.filter(d => d.id === selectedCategory);
 
   return (
     <section id="services-section" className="py-24 sm:py-32 relative bg-[#0b0c10]">
@@ -205,7 +205,7 @@ export default function ServicesSection({ services, onSelectService, onViewAllSe
             All Disciplines ({services.length})
           </button>
 
-          {SERVICES_SECTION.map((d) => {
+          {SERVICES_SECTION_CARD.map((d) => {
             const count = services.filter(s => s.category_id === d.id).length;
             const isActive = selectedCategory === d.id;
             return (
@@ -262,18 +262,16 @@ export default function ServicesSection({ services, onSelectService, onViewAllSe
                         key={service.id}
                         initial={{ 
                           opacity: 0, 
-                          clipPath: 'inset(0% 0% 100% 0%)',
-                          y: 20 
+                          y: 28 
                         }}
                         whileInView={{ 
                           opacity: 1, 
-                          clipPath: 'inset(0% 0% 0% 0%)',
                           y: 0 
                         }}
-                        viewport={{ once: true, margin: '-40px' }}
+                        viewport={{ once: true, amount: 0.05 }}
                         transition={{ 
-                          duration: 0.6, 
-                          delay: (index % 4) * 0.08, 
+                          duration: 0.5, 
+                          delay: (index % 4) * 0.07, 
                           ease: [0.16, 1, 0.3, 1] 
                         }}
                         whileHover={{ y: -6 }}

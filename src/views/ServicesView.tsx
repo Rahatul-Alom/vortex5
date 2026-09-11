@@ -32,7 +32,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import { Service } from '../types';
-import { SERVICES_SECTION } from '../components/ServicesSection';
+import { SERVICES_SECTION_CARD } from '../components/ServicesSection';
 
 interface ServicesViewProps {
   services: Service[];
@@ -83,8 +83,8 @@ export default function ServicesView({
   )}`;
 
   const displayedDisciplines = activeTab === 'all' 
-    ? SERVICES_SECTION 
-    : SERVICES_SECTION.filter(d => d.id === activeTab);
+    ? SERVICES_SECTION_CARD 
+    : SERVICES_SECTION_CARD.filter(d => d.id === activeTab);
 
   return (
     <div className="pt-28 pb-24 bg-[#0b0c10] text-zinc-300">
@@ -131,7 +131,7 @@ export default function ServicesView({
             All Disciplines ({services.length})
           </button>
 
-          {SERVICES_SECTION.map((d) => {
+          {SERVICES_SECTION_CARD.map((d) => {
             const count = services.filter(s => s.category_id === d.id).length;
             const isActive = activeTab === d.id;
             return (
@@ -174,7 +174,7 @@ export default function ServicesView({
                   <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
+                    viewport={{ once: true, amount: 0.05 }}
                     transition={{ duration: 0.45 }}
                     className="border-b border-zinc-800 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4"
                   >
@@ -193,7 +193,7 @@ export default function ServicesView({
                     </p>
                   </motion.div>
 
-                  {/* Services Grid with Wipe In / Out Effect */}
+                  {/* Services Grid with Smooth Wipe & Fade Effect */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {disciplineServices.map((service, index) => {
                       const Icon = iconMap[service.icon_name] || Sparkles;
@@ -203,23 +203,21 @@ export default function ServicesView({
                           key={service.id}
                           initial={{ 
                             opacity: 0, 
-                            clipPath: 'inset(0% 0% 100% 0%)',
-                            y: 20
+                            y: 28
                           }}
                           whileInView={{ 
                             opacity: 1, 
-                            clipPath: 'inset(0% 0% 0% 0%)',
                             y: 0 
                           }}
                           exit={{
                             opacity: 0,
-                            clipPath: 'inset(0% 0% 100% 0%)',
-                            transition: { duration: 0.25 }
+                            y: -15,
+                            transition: { duration: 0.2 }
                           }}
-                          viewport={{ once: true, margin: '-40px' }}
+                          viewport={{ once: true, amount: 0.05 }}
                           transition={{ 
-                            duration: 0.6, 
-                            delay: (index % 4) * 0.08, 
+                            duration: 0.5, 
+                            delay: (index % 4) * 0.07, 
                             ease: [0.16, 1, 0.3, 1] 
                           }}
                           whileHover={{ y: -8, scale: 1.01 }}
