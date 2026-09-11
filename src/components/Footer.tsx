@@ -12,7 +12,7 @@ export default function Footer({
   onNavigate,
   onOpenContact,
   whatsappNumber = '15550192834',
-  contactEmail = 'hello@vortex5.agency',
+  contactEmail = 'hello@vortex5.net',
   contactPhone = '+1 (555) 019-2834'
 }: FooterProps) {
   const cleanNumber = whatsappNumber.replace(/[^0-9]/g, '');

@@ -182,7 +182,7 @@ export default function ContactFormModal({
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Alex Morgan"
+                        placeholder="Your Name"
                         className="w-full px-4 py-3 rounded-xl bg-zinc-900/80 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 text-sm transition-colors"
                       />
                     </div>
@@ -197,7 +197,7 @@ export default function ContactFormModal({
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="alex@company.com"
+                        placeholder="Your Email"
                         className="w-full px-4 py-3 rounded-xl bg-zinc-900/80 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 text-sm transition-colors"
                       />
                     </div>

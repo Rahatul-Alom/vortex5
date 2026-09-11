@@ -42,7 +42,7 @@ const budgetOptions = [
 
 export default function ContactView({
   whatsappNumber = '15550192834',
-  contactEmail = 'hello@vortex5.agency',
+  contactEmail = 'hello@vortex5.net',
   contactPhone = '+1 (555) 019-2834'
 }: ContactViewProps) {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -206,7 +206,7 @@ export default function ContactView({
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Alex Morgan"
+                        placeholder="Your Name"
                         className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-sm focus:outline-none focus:border-cyan-400"
                       />
                     </div>
